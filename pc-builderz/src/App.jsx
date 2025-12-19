@@ -1,4 +1,5 @@
 import React from 'react';
+import partsData from './data/parts.json';
 
 function App() {
   return (
@@ -39,8 +40,16 @@ function App() {
 
       {/* PLACEHOLDER FOR NEXT STEPS */}
       <main className="max-w-6xl mx-auto p-6">
-        <div className="h-64 border-2 border-dashed border-slate-800 rounded-3xl flex items-center justify-center text-slate-600">
-              Featured Builds Section coming soon...
+        <h3 className="text-2xl font-bold mb-6">Select a CPU.</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {partsData.CPU.map((cpu) => (
+            <div key={cpu.id} className="p-6 bg-[#1E293B] rounded-xl border border-slate-700">
+              <h4 className="text-xl font-semibold mb-2">{cpu.name}</h4>
+              <p className="text-slate-400 mb-4">{cpu.description}</p>
+              <p className="font-bold text-lg">${cpu.price}</p>
+            </div>
+          ))}
           </div> 
       </main>
       
