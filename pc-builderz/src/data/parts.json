@@ -10,7 +10,8 @@
             "tdp": "125W",
             "price": 589.99,
             "socket": "LGA1700",
-            "brand": "Intel"
+            "brand": "Intel",
+            "description": "The Intel Core i9-13900K is a high-performance processor from Intel's 13th generation Raptor Lake series, featuring 24 cores and 32 threads, making it ideal for gaming and content creation."
         },
 
         {
@@ -23,7 +24,8 @@
             "tdp": "170W",
             "price": 699.99,
             "socket": "AM5",
-            "brand": "AMD"
+            "brand": "AMD",
+            "description": "The AMD Ryzen 9 7950X is a flagship processor from AMD's Ryzen 7000 series, offering 16 cores and 32 threads, delivering exceptional performance for gaming, streaming, and professional workloads."
         }
     ], 
     "MOBO": [
