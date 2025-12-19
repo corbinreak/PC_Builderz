@@ -1,0 +1,67 @@
+{
+    "CPU": [
+        {
+            "id": 1,
+            "name": "Intel Core i9-13900K",
+            "cores": 24,
+            "threads": 32,
+            "base_clock": "3.0 GHz",
+            "boost_clock": "5.8 GHz",
+            "tdp": "125W",
+            "price": 589.99,
+            "socket": "LGA1700",
+            "brand": "Intel"
+        },
+
+        {
+            "id": 2,
+            "name": "AMD Ryzen 9 7950X",
+            "cores": 16,
+            "threads": 32,
+            "base_clock": "4.5 GHz",
+            "boost_clock": "5.7 GHz",
+            "tdp": "170W",
+            "price": 699.99,
+            "socket": "AM5",
+            "brand": "AMD"
+        }
+    ], 
+    "MOBO": [
+        {
+            "id": 1,
+            "name": "ASUS ROG Strix Z790-E Gaming WiFi",
+            "chipset": "Z790",
+            "form_factor": "ATX",
+            "memory_slots": 4,
+            "max_memory": "128GB",
+            "price": 399.99,
+            "socket": "LGA1700",
+            "brand": "ASUS"
+        },
+
+        {
+            "id": 2,
+            "name": "MSI MPG B650 Carbon WiFi",
+            "chipset": "B650",
+            "form_factor": "ATX",
+            "memory_slots": 4,
+            "max_memory": "128GB",
+            "price": 249.99,
+            "socket": "AM5",
+            "brand": "MSI"
+        },
+        
+        {
+            "id": 3,
+            "socket" : "AM5",
+            "name" : "Gigabyte B650 AORUS Elite AX",
+            "brand" : "Gigabyte",
+            "form_factor" : "ATX",
+            "chipset" : "B650",
+            "memory_slots" : 4,
+            "max_memory" : "128GB",
+            "price" : 219.99
+        }
+   ]
+}
+     
