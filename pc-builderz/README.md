@@ -48,7 +48,7 @@ State Management: Utilizes React hooks (useState, useEffect) to manage the globa
 
 Logical Filtering: Implements advanced JavaScript array methods (filter, reduce) to calculate totals and enforce hardware compatibility rules.
 
-### 🚦 Getting Started ###
+## 🚦 Getting Started ##
 Follow these steps to run the project locally:
 
 Clone the repository:
