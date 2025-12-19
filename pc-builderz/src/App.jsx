@@ -27,18 +27,22 @@ function App() {
           Precision engineering meets simple selection. Use our real-time compatibility
           checker to build the perfect PC tailored to your needs. 
         </p>
-        <div calssName="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4">
           <button className="bg-white text-black px-8 py-4 rounded-lg font-bold hover:bg-slate-200">
             Start Building
           </button>
-          <button className="border border-slate-700 ml-6 px-8 py-4 rounded-lg font-bold hover:bg-slate-800">
+          <button className="border border-slate-700 px-8 py-4 rounded-lg font-bold hover:bg-slate-800">
             View Ideas
           </button>
         </div>
       </header>
 
       {/* PLACEHOLDER FOR NEXT STEPS */}
-      
+      <main className="max-w-6xl mx-auto p-6">
+        <div className="h-64 border-2 border-dashed border-slate-800 rounded-3xl flex items-center justify-center text-slate-600">
+              Featured Builds Section coming soon...
+          </div> 
+      </main>
       
     </div>
   )
