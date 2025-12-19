@@ -1,16 +1,71 @@
-# React + Vite
+💻 PC BUILDERZ
+PC BUILDERZ is a modern, high-performance web application designed to help enthusiasts build their dream computers. It features a smart compatibility engine that handles the technical complexity of PC hardware selection through a clean, "engineered" user interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+Smart Compatibility Engine: Automatically filters and validates parts based on socket types, dimensions, and power requirements.
 
-Currently, two official plugins are available:
+Live Price & Wattage Tracking: Real-time calculation of total build cost and power draw (TDP) as the user selects components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Featured Build Templates: Quick-start configurations based on user goals (Gaming, Workstation, Budget).
 
-## React Compiler
+Responsive Dark Mode UI: A high-tech aesthetic built with precision for both mobile and desktop experiences.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+🛠️ Tech Stack
+Frontend:
 
-## Expanding the ESLint configuration
+React (Vite): Core framework for component-based architecture.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tailwind CSS: For modern, utility-first styling and responsive design.
+
+Framer Motion: (Optional) For smooth UI transitions and animations.
+
+Backend & Data:
+
+Node.js / Express: Handling part data and API requests.
+
+JSON/PostgreSQL: Managing a relational database of PC components and specifications.
+
+Typography:
+
+Inter: Primary typeface for readability.
+
+JetBrains Mono: Accent typeface for technical specifications and pricing data.
+
+🏗️ Architecture & Engineering
+This project was built with a focus on Clean Code and Maintainability:
+
+Component-Driven Development: UI elements like PartCard and FeaturedBuild are modular and reusable.
+
+State Management: Utilizes React hooks (useState, useEffect) to manage the global "Build State" across different application views.
+
+Logical Filtering: Implements advanced JavaScript array methods (filter, reduce) to calculate totals and enforce hardware compatibility rules.
+
+🚦 Getting Started
+Follow these steps to run the project locally:
+
+Clone the repository:
+
+Bash
+
+git clone https://github.com/your-username/pc-builderz.git
+Navigate to the folder:
+
+Bash
+
+cd pc-builderz
+Install dependencies:
+
+Bash
+
+npm install
+Start the development server:
+
+Bash
+
+npm run dev
+👤 Author
+[Your Name]
+
+GitHub: @your-username
+
+LinkedIn: [Your Profile Link]
