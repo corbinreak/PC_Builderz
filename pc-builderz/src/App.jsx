@@ -1,8 +1,12 @@
 import React  from 'react';
 import partsData from './data/parts.json';
+import FeaturedScreen from '../components/featuredScreen.jsx';
+import LiveCompatibility from '../components/liveCompatibility.jsx';
+import BuildScreen from '../components/BuildScreen.jsx';
 
 function App() {
   const [selectedCPU, setSelectedCPU] = React.useState(null);
+  const [selectedMOBO, setSelectedMOBO] = React.useState(null);
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
@@ -13,7 +17,7 @@ function App() {
         </h1>
         <div className="space-x-9 hidden md:flex font-mono text-sm tracking-wide">
           <a href="#" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Shop</a>
-          <a href="#" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
+          <a href="/build" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
           <a href="#" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
         </div>
         <button className="bg-[#38BDF8] text-[#0F172A] px-5 py-2 rounded-full font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
@@ -39,28 +43,13 @@ function App() {
           </button>
         </div>
       </header>
+      {/* Featured Builds Section */} 
 
-      {/* CPU Selection Section */}
-      <main className="max-w-6xl mx-auto p-6">
-        <h3 className="text-2xl font-bold mb-6 text-[#F8FAFC]">Select a CPU.</h3>
+     <FeaturedScreen />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {partsData.CPU.map((cpu) => (
-            <div key={cpu.id} className="p-6 bg-[#1E293B] rounded-xl border border-[#38BDF8] border-opacity-30">
-              <h4 className=" font-sans text-xl font-bold mb-2 text-[#F8FAFC]">{cpu.name}</h4>
-              <p className="font-mono text-[#F8FAFC] opacity-70 mb-4">{cpu.description}</p>
-              <p className=" font-mono font-bold text-lg text-[#38BDF8]">${cpu.price}</p>
-              <button
-                className="border border-[#38BDF8] bg-transparent text-[#F8FAFC] px-4 py-2 rounded-lg mt-4 hover:bg-[#38BDF8] hover:text-[#0F172A] transition font-semibold"
-                onClick={() => setSelectedCPU(cpu)}
-              >
-                Select
-              </button>
-            </div>
-          ))}
-          </div> 
-      </main>
-      
+     {/* Live Compatibility Screen */}
+
+     <LiveCompatibility /> 
     </div>
   )
 }

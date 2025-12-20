@@ -64,6 +64,27 @@
             "max_memory" : "128GB",
             "price" : 219.99
         }
+   ],
+
+   "featuredBuilds" : [
+     {
+        "id": 101,
+        "title": "The Intel Titan",
+        "description": "A powerhouse build centered around the Intel Core i9-13900K, perfect for gaming and content creation.",
+        "cpuId": 1,
+        "moboId": 1,
+        "price": 989.98,
+        "image": "https://placehold.co/600x400/1e293b/38bdf8?text=Intel+Titan"
+    },
+    {
+        "id": 102,
+        "title": "AMD Powerhouse",
+        "description": "A high-performance build featuring the AMD Ryzen 9 7950X, ideal for multitasking and heavy workloads.",
+        "cpuId": 2,
+        "moboId": 2,
+        "price": 949.98,
+        "image": "https://placehold.co/600x400/1e293b/f97316?text=AMD+Powerhouse"
+    }
    ]
 }
      
