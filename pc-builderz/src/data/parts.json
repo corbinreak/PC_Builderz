@@ -85,6 +85,42 @@
         "price": 949.98,
         "image": "https://placehold.co/600x400/1e293b/f97316?text=AMD+Powerhouse"
     }
-   ]
+   ],
+   "GPU": [
+    {
+      "id": 1,
+      "name": "NVIDIA GeForce RTX 4080 Super",
+      "brand": "NVIDIA",
+      "vram": "16GB GDDR6X",
+      "length": "310mm",
+      "tdp": "320W",
+      "price": 999.99
+    },
+    {
+      "id": 2,
+      "name": "AMD Radeon RX 7900 XTX",
+      "brand": "AMD",
+      "vram": "24GB GDDR6",
+      "length": "287mm",
+      "tdp": "355W",
+      "price": 899.99
+    }
+  ],
+  "RAM": [
+    {
+      "id": 1,
+      "name": "Corsair Vengeance RGB 32GB",
+      "type": "DDR5",
+      "speed": "6000MT/s",
+      "price": 124.99
+    },
+    {
+      "id": 2,
+      "name": "G.Skill Ripjaws V 16GB",
+      "type": "DDR4",
+      "speed": "3600MT/s",
+      "price": 42.99
+    }
+  ]
 }
      

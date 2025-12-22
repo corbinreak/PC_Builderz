@@ -1,4 +1,4 @@
-import partsData from '../src/data/parts.json'
+import partsData from '../data/parts.json';
 
 function FeaturedScreen() {
     return (

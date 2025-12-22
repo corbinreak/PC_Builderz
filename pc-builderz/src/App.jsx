@@ -1,12 +1,14 @@
 import React  from 'react';
 import partsData from './data/parts.json';
-import FeaturedScreen from '../components/featuredScreen.jsx';
-import LiveCompatibility from '../components/liveCompatibility.jsx';
-import BuildScreen from '../components/BuildScreen.jsx';
+import FeaturedScreen from './components/featuredScreen.jsx';
+import LiveCompatibility from './components/liveCompatibility.jsx';
+import BuildScreen from './components/BuildScreen.jsx';
 
 function App() {
   const [selectedCPU, setSelectedCPU] = React.useState(null);
   const [selectedMOBO, setSelectedMOBO] = React.useState(null);
+  const [selectedGPU, setSelectedGPU] = React.useState(null);
+  const [selectedRAM, setSelectedRAM] = React.useState(null);
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
