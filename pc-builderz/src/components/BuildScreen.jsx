@@ -1,9 +1,14 @@
+ import React from 'react';
+ import partsData from '../data/parts.json';
+
+ function BuildScreen({ selectedCPU, setSelectedCPU, selectedMOBO, setSelectedMOBO, selectedRAM, setSelectedRAM }) {
+  return (
+    <div className="min-h-screen bg-[#0F172A] text-[#F8FAFC] font-sans pt-10 pb-20">
+      <h3 className="text-3xl font-bold mb-10 text-center">Build Your PC</h3>
+       
+    {/* CPU Selection Section */}
  
- function BuildScreen() {
-  const [selectedCPU, setSelectedCPU] = useState(null);
-  const [selectedMOBO, setSelectedMOBO] = useState(null);
- {/* CPU Selection Section */}
-      <main className="max-w-6xl mx-auto p-6">
+      <section className="max-w-6xl mx-auto p-6">
         <h3 className="text-2xl font-bold mb-6 text-[#F8FAFC]">Select a CPU.</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -21,7 +26,7 @@
             </div>
           ))}
           </div> 
-      </main>
+      </section>
       {/* MoBo Selection Section */}
       <section className="max-w-6xl mx-auto p-6 mb-20">
         <h3 className="text-2xl font-bold mb-6 font-sans">
@@ -58,6 +63,8 @@
           </div>
         )}
       </section>
+    </div>
+  )
 }
 export default BuildScreen;
       

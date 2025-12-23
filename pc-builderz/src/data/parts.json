@@ -38,7 +38,8 @@
             "max_memory": "128GB",
             "price": 399.99,
             "socket": "LGA1700",
-            "brand": "ASUS"
+            "brand": "ASUS",
+            "ramType": "DDR5"
         },
 
         {
@@ -50,7 +51,8 @@
             "max_memory": "128GB",
             "price": 249.99,
             "socket": "AM5",
-            "brand": "MSI"
+            "brand": "MSI",
+            "ramType": "DDR5"
         },
         
         {
@@ -62,7 +64,8 @@
             "chipset" : "B650",
             "memory_slots" : 4,
             "max_memory" : "128GB",
-            "price" : 219.99
+            "price" : 219.99,
+            "ramType": "DDR4"
         }
    ],
 

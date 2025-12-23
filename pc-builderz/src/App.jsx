@@ -9,6 +9,21 @@ function App() {
   const [selectedMOBO, setSelectedMOBO] = React.useState(null);
   const [selectedGPU, setSelectedGPU] = React.useState(null);
   const [selectedRAM, setSelectedRAM] = React.useState(null);
+  const [compatibleCPU, setCompatibleCPU] = React.useState([]);
+  const [compatibleMOBO, setCompatibleMOBO] = React.useState([]);
+  const [compatibleCategory, setCompatibleCategory] = React.useState('');
+  const [selectedScreen, setSelectedScreen] = React.useState('Home');
+
+  const handleSandboxPartSelection = (category, partName) => {
+
+    // Look into the specific parts data based on category and find the part with the matching name
+    const partObject = partsData[category].find(p => p.name === partName);
+
+    // update the correct sandbox state 
+    if (category === 'CPU') setSelectedCPU(partObject);
+    if (category === 'MOBO') setSelectedMOBO(partObject);
+    if (category === 'RAM') setSelectedRAM(partObject);
+  }
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
@@ -17,16 +32,18 @@ function App() {
         <h1 className="text-2xl font-bold tracking-tighter text-[#38BDF8]">
           PC BUILDERZ
         </h1>
-        <div className="space-x-9 hidden md:flex font-mono text-sm tracking-wide">
-          <a href="#" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Shop</a>
-          <a href="/build" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
-          <a href="#" className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
+        <div className="space-x-9 hidden md:flex font-mono text-sm tracking-wide cursor-pointer">
+          <a onClick={() => { setSelectedScreen('Home')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Home</a>
+          <a onClick={() => { setSelectedScreen('BuildScreen')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
+          <a onClick={() => { setSelectedScreen('Cart')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
         </div>
         <button className="bg-[#38BDF8] text-[#0F172A] px-5 py-2 rounded-full font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
           Get Started
         </button>
       </nav>
-
+      {console.log(selectedScreen)}
+      {selectedScreen === 'Home' && (
+        <>
       {/* Hero Section */}
       <header className="py-20 px-6 text-center">
         <h2 className="text-5xl md:text-7xl font-bold mb-6">
@@ -45,13 +62,37 @@ function App() {
           </button>
         </div>
       </header>
+      
       {/* Featured Builds Section */} 
 
      <FeaturedScreen />
 
      {/* Live Compatibility Screen */}
 
-     <LiveCompatibility /> 
+     <LiveCompatibility
+        partsData={partsData}
+        compatibleCategory={compatibleCategory}
+        setCompatibleCategory={setCompatibleCategory}
+        onPartSelect={handleSandboxPartSelection}
+        />
+      </>
+     )}
+
+     {/* Build Screen Section */}
+     {selectedScreen === 'BuildScreen' && (
+        <BuildScreen
+          selectedCPU={selectedCPU}
+          setSelectedCPU={setSelectedCPU}
+          selectedMOBO={selectedMOBO}
+          setSelectedMOBO={setSelectedMOBO}
+          selectedRAM={selectedRAM}
+          setSelectedRAM={setSelectedRAM}
+        />
+     )}
+
+     
+
+     
     </div>
   )
 }
