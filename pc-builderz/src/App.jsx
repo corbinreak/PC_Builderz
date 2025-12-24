@@ -119,7 +119,9 @@ function App() {
         />
      )}
 
-     <Footer />
+     <Footer 
+        setSelectedScreen={setSelectedScreen}
+     />
 
      
     </div>
