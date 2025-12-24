@@ -5,6 +5,12 @@ function LiveCompatibility({ partsData, compatibleCategory, setCompatibleCategor
     }
     return (
         <div className="max-w-6xl bg-[#0F172A] mx-auto rounded-xl p-6 mb-20 border border-slate-800">
+            <div>
+            <h3 className="text-2xl font-bold mb-6 text-[#F8FAFC]">Live Compatibility Checker</h3>
+            <p className="text-[#F8FAFC] opacity-70 mb-4 font-mono">
+                Select a part category to view compatible components in real-time before you build your PC.
+            </p>
+            </div>
            {/* select a category dropdown */}
             <select 
               value={compatibleCategory}

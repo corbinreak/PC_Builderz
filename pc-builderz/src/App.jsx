@@ -3,6 +3,7 @@ import partsData from './data/parts.json';
 import FeaturedScreen from './components/featuredScreen.jsx';
 import LiveCompatibility from './components/liveCompatibility.jsx';
 import BuildScreen from './components/BuildScreen.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   const [selectedCPU, setSelectedCPU] = React.useState(null);
@@ -23,6 +24,22 @@ function App() {
     if (category === 'CPU') setSelectedCPU(partObject);
     if (category === 'MOBO') setSelectedMOBO(partObject);
     if (category === 'RAM') setSelectedRAM(partObject);
+  }
+
+  //Logic to check compatibility 
+
+  const checkCompatibility = () => {
+    let issues = [];
+
+    // CPU and MOBO Check
+    if (selectedCPU && selectedMOBO && selectedCPU.socket !== selectedMOBO.socket) {
+      issues.push("CPU socket does not match Motherboard socket.");
+    }
+    // Motherboard & RAM Check
+    if (selectedMOBO && selectedRAM && selectedMOBO.ramType !== selectedRAM.type) {
+      issues.push(`Motherboard requires ${selectedMOBO.ramType}, but RAM is ${selectedRAM.ramType}`);
+    }
+    return issues; // Return array of issues
   }
 
   return (
@@ -90,7 +107,7 @@ function App() {
         />
      )}
 
-     
+     <Footer />
 
      
     </div>
