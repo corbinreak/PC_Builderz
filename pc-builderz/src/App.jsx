@@ -28,19 +28,26 @@ function App() {
 
   //Logic to check compatibility 
 
-  const checkCompatibility = () => {
-    let issues = [];
+  const compatibilityIssues = (() => {
+    let issues =[];
 
-    // CPU and MOBO Check
+    // CPU & MOBO compatibility
     if (selectedCPU && selectedMOBO && selectedCPU.socket !== selectedMOBO.socket) {
-      issues.push("CPU socket does not match Motherboard socket.");
+      issues.push(`Socket Mismatch: Selected CPU (${selectedCPU.name} uses (${selectedCPU.socket} but selected Motherboard (${selectedMOBO.name}) uses: (${selectedMOBO.socket})) ) does not match Motherboard (${selectedMOBO.name}) uses (${selectedMOBO.socket}).`);
     }
-    // Motherboard & RAM Check
-    if (selectedMOBO && selectedRAM && selectedMOBO.ramType !== selectedRAM.type) {
-      issues.push(`Motherboard requires ${selectedMOBO.ramType}, but RAM is ${selectedRAM.ramType}`);
+
+      // MOBO & RAM compatibility
+    if (selectedMOBO && selectedRAM && selectedRAM.ramType !== selectedMOBO.ramType) {
+      issues.push(`RAM Type Mismatch: (${selectedMOBO.name} requires (${selectedMOBO.ramType}, but you have selected ${selectedRAM.type} RAM).)`)
     }
-    return issues; // Return array of issues
-  }
+
+    return issues;
+      
+  })();
+
+  // Helper variables for the UI
+  const hasRequiredParts = selectedCPU && selectedMOBO;
+  const isPerfectMatch = hasRequiredParts && compatibilityIssues.length === 0;
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
@@ -91,6 +98,11 @@ function App() {
         compatibleCategory={compatibleCategory}
         setCompatibleCategory={setCompatibleCategory}
         onPartSelect={handleSandboxPartSelection}
+        issues={compatibilityIssues}
+        isPerfect={isPerfectMatch}
+        selectedCPU={selectedCPU}
+        selectedMOBO={selectedMOBO}
+        selectedRAM={selectedRAM}
         />
       </>
      )}
