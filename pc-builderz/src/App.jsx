@@ -93,12 +93,6 @@ function App() {
 
      <FeaturedScreen />
      
-     
-     <ShopByCategory 
-        setSelectedScreen={setSelectedScreen}
-        setBuildFilter={setBuildFilter}
-     />
-
      {/* Live Compatibility Screen */}
 
      <LiveCompatibility
@@ -112,7 +106,14 @@ function App() {
         selectedMOBO={selectedMOBO}
         selectedRAM={selectedRAM}
         />
+      
+
+     <ShopByCategory 
+        setSelectedScreen={setSelectedScreen}
+        setBuildFilter={setBuildFilter}
+     />
       </>
+     
      )}
      
      
