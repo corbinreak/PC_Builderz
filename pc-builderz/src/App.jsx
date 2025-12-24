@@ -4,6 +4,7 @@ import FeaturedScreen from './components/featuredScreen.jsx';
 import LiveCompatibility from './components/liveCompatibility.jsx';
 import BuildScreen from './components/BuildScreen.jsx';
 import Footer from './components/Footer.jsx';
+import ShopByCategory from './components/ShopByCategory.jsx';
 
 function App() {
   const [selectedCPU, setSelectedCPU] = React.useState(null);
@@ -14,6 +15,7 @@ function App() {
   const [compatibleMOBO, setCompatibleMOBO] = React.useState([]);
   const [compatibleCategory, setCompatibleCategory] = React.useState('');
   const [selectedScreen, setSelectedScreen] = React.useState('Home');
+  const [buildFilter, setBuildFilter] = React.useState(null);
 
   const handleSandboxPartSelection = (category, partName) => {
 
@@ -90,6 +92,12 @@ function App() {
       {/* Featured Builds Section */} 
 
      <FeaturedScreen />
+     
+     
+     <ShopByCategory 
+        setSelectedScreen={setSelectedScreen}
+        setBuildFilter={setBuildFilter}
+     />
 
      {/* Live Compatibility Screen */}
 
@@ -106,6 +114,8 @@ function App() {
         />
       </>
      )}
+     
+     
 
      {/* Build Screen Section */}
      {selectedScreen === 'BuildScreen' && (
@@ -118,6 +128,8 @@ function App() {
           setSelectedRAM={setSelectedRAM}
         />
      )}
+
+     
 
      <Footer 
         setSelectedScreen={setSelectedScreen}
