@@ -120,6 +120,9 @@ function App() {
      {/* Build Screen Section */}
      {selectedScreen === 'BuildScreen' && (
         <BuildScreen
+          partsData={partsData}
+          buildFilter={buildFilter}
+          onPartSelect={handleSandboxPartSelection}
           selectedCPU={selectedCPU}
           setSelectedCPU={setSelectedCPU}
           selectedMOBO={selectedMOBO}
