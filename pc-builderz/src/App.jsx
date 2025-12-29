@@ -27,6 +27,7 @@ function App() {
     if (category === 'CPU') setSelectedCPU(partObject);
     if (category === 'MOBO') setSelectedMOBO(partObject);
     if (category === 'RAM') setSelectedRAM(partObject);
+    if (category === 'GPU') setSelectedGPU(partObject);
   }
 
   //Logic to check compatibility 
@@ -59,12 +60,12 @@ function App() {
         .toFixed(2);
 };
 
-  const [selectedParts, setSelectedParts] = React.useState({
+  const selectedParts = {
     CPU: selectedCPU,
     MOBO: selectedMOBO,
     GPU: selectedGPU,
     RAM: selectedRAM
-  })
+  }
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
@@ -78,8 +79,10 @@ function App() {
           <a onClick={() => { setSelectedScreen('BuildScreen')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
           <a onClick={() => { setSelectedScreen('Cart')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
         </div>
-        <button className="bg-[#38BDF8] text-[#0F172A] px-5 py-2 rounded-full font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
-          Get Started
+        <button 
+          onClick={() => setSelectedScreen('BuildScreen')}
+          className="bg-[#38BDF8] text-[#0F172A] px-5 py-2 rounded-full font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
+            Get Started
         </button>
       </nav>
       {console.log(selectedScreen)}
@@ -95,7 +98,9 @@ function App() {
           checker to build the perfect PC tailored to your needs. 
         </p>
         <div className="flex justify-center space-x-4">
-          <button className="bg-[#38BDF8] text-[#0F172A] px-8 py-4 rounded-lg font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
+          <button 
+          onClick={() => setSelectedScreen('BuildScreen')}
+          className="bg-[#38BDF8] text-[#0F172A] px-8 py-4 rounded-lg font-bold hover:bg-[#A855F7] hover:text-[#F8FAFC] transition">
             Start Building
           </button>
           <button className="border border-[#38BDF8] px-8 py-4 rounded-lg font-bold text-[#F8FAFC] hover:bg-[#1E293B] transition">
@@ -136,6 +141,8 @@ function App() {
      {/* Build Screen Section */}
      {selectedScreen === 'BuildScreen' && (
         <BuildScreen
+          selectedScreen={selectedScreen}
+          setSelectedScreen={setSelectedScreen}
           partsData={partsData}
           buildFilter={buildFilter}
           onPartSelect={handleSandboxPartSelection}
@@ -145,6 +152,8 @@ function App() {
           setSelectedMOBO={setSelectedMOBO}
           selectedRAM={selectedRAM}
           setSelectedRAM={setSelectedRAM}
+          selectedGPU={selectedGPU}
+          setSelectedGPU={setSelectedGPU}
         />
      )}
 

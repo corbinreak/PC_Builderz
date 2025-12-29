@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, selectedMOBO, selectedRAM, selectedGPU }) => {
+const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, selectedMOBO, selectedRAM, selectedGPU, setSelectedScreen }) => {
     // 1. Filtering Logic
     const getFilteredParts = (category) => {
     // 1. Get the raw list of parts for this category (CPU, MOBO, etc.)
@@ -127,7 +127,9 @@ const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, select
                   <span className="text-3xl font-black text-[#38BDF8]">${calculateTotal()}</span>
                 </div>
 
-                <button className="w-full bg-[#38BDF8] hover:bg-[#A855F7] text-[#0F172A] font-black py-4 rounded-xl transition-all uppercase tracking-tighter shadow-lg shadow-blue-500/10">
+                <button 
+                  onClick={() => setSelectedScreen('Cart')}
+                  className="w-full bg-[#38BDF8] hover:bg-[#A855F7] text-[#0F172A] font-black py-4 rounded-xl transition-all uppercase tracking-tighter shadow-lg shadow-blue-500/10">
                   Review & Checkout
                 </button>
               </div>
