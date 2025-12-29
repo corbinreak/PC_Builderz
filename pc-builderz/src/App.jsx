@@ -5,6 +5,7 @@ import LiveCompatibility from './components/liveCompatibility.jsx';
 import BuildScreen from './components/BuildScreen.jsx';
 import Footer from './components/Footer.jsx';
 import ShopByCategory from './components/ShopByCategory.jsx';
+import CheckoutScreen from './components/CheckoutScreen.jsx';
 
 function App() {
   const [selectedCPU, setSelectedCPU] = React.useState(null);
@@ -50,6 +51,20 @@ function App() {
   // Helper variables for the UI
   const hasRequiredParts = selectedCPU && selectedMOBO;
   const isPerfectMatch = hasRequiredParts && compatibilityIssues.length === 0;
+
+  const calculateTotal = () => {
+    // We convert the object values into an array and sum the prices
+    return Object.values(selectedParts)
+        .reduce((sum, part) => sum + (part?.price || 0), 0)
+        .toFixed(2);
+};
+
+  const [selectedParts, setSelectedParts] = React.useState({
+    CPU: selectedCPU,
+    MOBO: selectedMOBO,
+    GPU: selectedGPU,
+    RAM: selectedRAM
+  })
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-[#F8FAFC] font-sans">
@@ -133,7 +148,15 @@ function App() {
         />
      )}
 
-     
+     {/* Cart / Checkout Screen Section */}
+      {selectedScreen === 'Cart' && (
+        <CheckoutScreen 
+        selectedParts={selectedParts}
+        calculateTotal={calculateTotal}
+        setSelectedScreen={setSelectedScreen}
+        />
+
+      )}
 
      <Footer 
         setSelectedScreen={setSelectedScreen}
