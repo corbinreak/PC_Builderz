@@ -1,95 +1,173 @@
 {
-    "CPU": [
-        {
-            "id": 1,
-            "name": "Intel Core i9-13900K",
-            "cores": 24,
-            "threads": 32,
-            "base_clock": "3.0 GHz",
-            "boost_clock": "5.8 GHz",
-            "tdp": "125W",
-            "price": 589.99,
-            "socket": "LGA1700",
-            "brand": "Intel",
-            "description": "The Intel Core i9-13900K is a high-performance processor from Intel's 13th generation Raptor Lake series, featuring 24 cores and 32 threads, making it ideal for gaming and content creation."
-        },
-
-        {
-            "id": 2,
-            "name": "AMD Ryzen 9 7950X",
-            "cores": 16,
-            "threads": 32,
-            "base_clock": "4.5 GHz",
-            "boost_clock": "5.7 GHz",
-            "tdp": "170W",
-            "price": 699.99,
-            "socket": "AM5",
-            "brand": "AMD",
-            "description": "The AMD Ryzen 9 7950X is a flagship processor from AMD's Ryzen 7000 series, offering 16 cores and 32 threads, delivering exceptional performance for gaming, streaming, and professional workloads."
-        }
-    ], 
-    "MOBO": [
-        {
-            "id": 1,
-            "name": "ASUS ROG Strix Z790-E Gaming WiFi",
-            "chipset": "Z790",
-            "form_factor": "ATX",
-            "memory_slots": 4,
-            "max_memory": "128GB",
-            "price": 399.99,
-            "socket": "LGA1700",
-            "brand": "ASUS",
-            "ramType": "DDR5"
-        },
-
-        {
-            "id": 2,
-            "name": "MSI MPG B650 Carbon WiFi",
-            "chipset": "B650",
-            "form_factor": "ATX",
-            "memory_slots": 4,
-            "max_memory": "128GB",
-            "price": 249.99,
-            "socket": "AM5",
-            "brand": "MSI",
-            "ramType": "DDR5"
-        },
-        
-        {
-            "id": 3,
-            "socket" : "AM5",
-            "name" : "Gigabyte B650 AORUS Elite AX",
-            "brand" : "Gigabyte",
-            "form_factor" : "ATX",
-            "chipset" : "B650",
-            "memory_slots" : 4,
-            "max_memory" : "128GB",
-            "price" : 219.99,
-            "ramType": "DDR4"
-        }
-   ],
-
-   "featuredBuilds" : [
-     {
-        "id": 101,
-        "title": "The Intel Titan",
-        "description": "A powerhouse build centered around the Intel Core i9-13900K, perfect for gaming and content creation.",
-        "cpuId": 1,
-        "moboId": 1,
-        "price": 989.98,
-        "image": "https://placehold.co/600x400/1e293b/38bdf8?text=Intel+Titan"
+  "CPU": [
+    {
+      "id": 1,
+      "name": "Intel Core i9-13900K",
+      "cores": 24,
+      "threads": 32,
+      "base_clock": "3.0 GHz",
+      "boost_clock": "5.8 GHz",
+      "tdp": "125W",
+      "price": 589.99,
+      "socket": "LGA1700",
+      "brand": "Intel",
+      "description": "Top-tier 13th Gen performance for elite gaming and heavy multitasking."
     },
     {
-        "id": 102,
-        "title": "AMD Powerhouse",
-        "description": "A high-performance build featuring the AMD Ryzen 9 7950X, ideal for multitasking and heavy workloads.",
-        "cpuId": 2,
-        "moboId": 2,
-        "price": 949.98,
-        "image": "https://placehold.co/600x400/1e293b/f97316?text=AMD+Powerhouse"
+      "id": 2,
+      "name": "AMD Ryzen 9 7950X",
+      "cores": 16,
+      "threads": 32,
+      "base_clock": "4.5 GHz",
+      "boost_clock": "5.7 GHz",
+      "tdp": "170W",
+      "price": 699.99,
+      "socket": "AM5",
+      "brand": "AMD",
+      "description": "Flagship Zen 4 processor designed for professional creators and gamers."
+    },
+    {
+      "id": 3,
+      "name": "Intel Core i7-10700",
+      "cores": 8,
+      "threads": 16,
+      "base_clock": "2.9 GHz",
+      "boost_clock": "4.8 GHz",
+      "tdp": "65W",
+      "price": 279.99,
+      "socket": "LGA1200",
+      "brand": "Intel",
+      "description": "A solid choice for mainstream users seeking balanced performance."
+    },
+    {
+      "id": 4,
+      "name": "Intel Core i5-13600K",
+      "cores": 14,
+      "threads": 20,
+      "base_clock": "3.5 GHz",
+      "boost_clock": "5.1 GHz",
+      "tdp": "125W",
+      "price": 319.99,
+      "socket": "LGA1700",
+      "brand": "Intel",
+      "description": "The sweet spot for gaming performance and value."
+    },
+    {
+      "id": 5,
+      "name": "AMD Ryzen 7 5800X",
+      "cores": 8,
+      "threads": 16,
+      "base_clock": "3.8 GHz",
+      "boost_clock": "4.7 GHz",
+      "tdp": "105W",
+      "price": 249.99,
+      "socket": "AM4",
+      "brand": "AMD",
+      "description": "A reliable 8-core beast for the mature AM4 platform."
     }
+  ],
+   "featuredBuilds" : [
+
+     {
+
+        "id": 101,
+
+        "title": "The Intel Titan",
+
+        "description": "A powerhouse build centered around the Intel Core i9-13900K, perfect for gaming and content creation.",
+
+        "cpuId": 1,
+
+        "moboId": 1,
+
+        "price": 989.98,
+
+        "image": "https://placehold.co/600x400/1e293b/38bdf8?text=Intel+Titan"
+
+    },
+
+    {
+
+        "id": 102,
+
+        "title": "AMD Powerhouse",
+
+        "description": "A high-performance build featuring the AMD Ryzen 9 7950X, ideal for multitasking and heavy workloads.",
+
+        "cpuId": 2,
+
+        "moboId": 2,
+
+        "price": 949.98,
+
+        "image": "https://placehold.co/600x400/1e293b/f97316?text=AMD+Powerhouse"
+
+    }
+
    ],
-   "GPU": [
+  "MOBO": [
+    {
+      "id": 1,
+      "name": "ASUS ROG Strix Z790-E Gaming WiFi",
+      "chipset": "Z790",
+      "form_factor": "ATX",
+      "memory_slots": 4,
+      "max_memory": "128GB",
+      "price": 399.99,
+      "socket": "LGA1700",
+      "brand": "ASUS",
+      "ramType": "DDR5"
+    },
+    {
+      "id": 2,
+      "name": "MSI MPG B650 Carbon WiFi",
+      "chipset": "B650",
+      "form_factor": "ATX",
+      "memory_slots": 4,
+      "max_memory": "128GB",
+      "price": 249.99,
+      "socket": "AM5",
+      "brand": "MSI",
+      "ramType": "DDR5"
+    },
+    {
+      "id": 3,
+      "name": "Gigabyte B550 AORUS ELITE",
+      "chipset": "B550",
+      "form_factor": "ATX",
+      "memory_slots": 4,
+      "max_memory": "128GB",
+      "price": 159.99,
+      "socket": "AM4",
+      "brand": "Gigabyte",
+      "ramType": "DDR4"
+    },
+    {
+      "id": 4,
+      "name": "ASRock B760M Steel Legend",
+      "chipset": "B760",
+      "form_factor": "Micro-ATX",
+      "memory_slots": 4,
+      "max_memory": "128GB",
+      "price": 169.99,
+      "socket": "LGA1700",
+      "brand": "ASRock",
+      "ramType": "DDR4"
+    },
+    {
+      "id": 5,
+      "name": "MSI MPG Z490 GAMING PLUS",
+      "chipset": "Z490",
+      "form_factor": "ATX",
+      "memory_slots": 4,
+      "max_memory": "128GB",
+      "price": 179.99,
+      "socket": "LGA1200",
+      "brand": "MSI",
+      "ramType": "DDR4" 
+    }
+  ],
+  "GPU": [
     {
       "id": 1,
       "name": "NVIDIA GeForce RTX 4080 Super",
@@ -107,23 +185,150 @@
       "length": "287mm",
       "tdp": "355W",
       "price": 899.99
+    },
+    {
+      "id": 3,
+      "name": "NVIDIA GeForce RTX 4070",
+      "brand": "NVIDIA",
+      "vram": "12GB GDDR6X",
+      "length": "240mm",
+      "tdp": "200W",
+      "price": 599.99
+    },
+    {
+      "id": 4,
+      "name": "MSI RTX 3060 Gaming X 12G",
+      "brand": "NVIDIA",
+      "vram": "12GB GDDR6",
+      "length": "242mm",
+      "tdp": "170W",
+      "price": 329.99
     }
   ],
   "RAM": [
     {
       "id": 1,
       "name": "Corsair Vengeance RGB 32GB",
-      "type": "DDR5",
+      "ramType": "DDR5",
       "speed": "6000MT/s",
       "price": 124.99
     },
     {
       "id": 2,
+      "name": "Corsair Vengeance 64GB",
+      "ramType": "DDR4",
+      "speed": "3200MT/s",
+      "price": 134.99
+    },
+    {
+      "id": 3,
       "name": "G.Skill Ripjaws V 16GB",
-      "type": "DDR4",
+      "ramType": "DDR4",
       "speed": "3600MT/s",
       "price": 42.99
+    },
+    {
+      "id": 4,
+      "name": "Crucial Pro 32GB Kit",
+      "ramType": "DDR4",
+      "speed": "3200MT/s",
+      "price": 65.99
+    }
+  ], 
+  "CASE": [
+    {
+      "id": 1,
+      "name": "Corsair 4000D Airflow",
+      "brand": "Corsair",
+      "form_factor": "ATX",
+      "max_gpu_length": "360mm",
+      "price": 104.99,
+      "description": "A high-airflow mid-tower case with easy cable management."
+    },
+    {
+      "id": 2,
+      "name": "NZXT H5 Flow",
+      "brand": "NZXT",
+      "form_factor": "ATX",
+      "max_gpu_length": "365mm",
+      "price": 94.99,
+      "description": "Compact ATX mid-tower with dedicated GPU cooling."
+    },
+    {
+      "id": 3,
+      "name": "SAMA TANK_RGB DUAL ATX Case",
+      "brand": "SAMA",
+      "form_factor": "ATX",
+      "max_gpu_length": "330mm",
+      "price": 79.99,
+      "description": "A budget-friendly case with RGB lighting and solid airflow."
+    }
+  ],
+  "PSU": [
+    {
+      "id": 1,
+      "name": "EVGA SuperNOVA 850 G6",
+      "brand": "EVGA",
+      "wattage": 850,
+      "efficiency": "80+ Gold",
+      "modular": "Full",
+      "price": 159.99
+    },
+    {
+      "id": 2,
+      "name": "Corsair RM750e",
+      "brand": "Corsair",
+      "wattage": 750,
+      "efficiency": "80+ Gold",
+      "modular": "Full",
+      "price": 99.99
+    },
+    {
+      "id": 3,
+      "name": "Seasonic Focus GX-650",
+      "brand": "Seasonic",
+      "wattage": 650,
+      "efficiency": "80+ Gold",
+      "modular": "Full",
+      "price": 119.99
+    },
+    {
+      "id" : 4,
+      "name": "Hp 400W Power Supply",
+      "brand": "Hp",
+      "wattage": 400,
+      "efficiency": "80+ Bronze",
+      "modular": "No",
+      "price": 49.99
+    },
+    {
+      "id": 5,
+      "name": "EVGA W1 600W",
+      "brand": "EVGA",
+      "wattage": 600,
+      "efficiency": "80+ White",
+      "modular": "No",
+      "price": 69.99 
+    }
+  ],
+  "storage": [
+    {
+      "id": 1,
+      "name": "Samsung 970 EVO Plus 1TB",
+      "type": "NVMe SSD",
+      "price": 129.99
+    },
+    {
+      "id": 2,
+      "name": "Western Digital Blue 1TB",
+      "type": "SATA SSD",
+      "price": 89.99
+    },
+    {
+      "id": 3,
+      "name": "Seagate Barracuda 2TB",
+      "type": "HDD",
+      "price": 54.99
     }
   ]
 }
-     

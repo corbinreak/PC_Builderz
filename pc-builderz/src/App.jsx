@@ -12,6 +12,9 @@ function App() {
   const [selectedMOBO, setSelectedMOBO] = React.useState(null);
   const [selectedGPU, setSelectedGPU] = React.useState(null);
   const [selectedRAM, setSelectedRAM] = React.useState(null);
+  const [selectedCASE, setSelectedCASE] = React.useState(null);
+  const [selectedPSU, setSelectedPSU] = React.useState(null);
+  const [selectedStorage, setSelectedStorage] = React.useState(null);
   const [compatibleCPU, setCompatibleCPU] = React.useState([]);
   const [compatibleMOBO, setCompatibleMOBO] = React.useState([]);
   const [compatibleCategory, setCompatibleCategory] = React.useState('');
@@ -24,10 +27,49 @@ function App() {
     const partObject = partsData[category].find(p => p.name === partName);
 
     // update the correct sandbox state 
-    if (category === 'CPU') setSelectedCPU(partObject);
-    if (category === 'MOBO') setSelectedMOBO(partObject);
-    if (category === 'RAM') setSelectedRAM(partObject);
-    if (category === 'GPU') setSelectedGPU(partObject);
+    if (category === 'CPU'){
+      if (selectedCPU?.name === partName) {
+        setSelectedCPU(null);
+      } else {
+        setSelectedCPU(partObject);
+      }
+    }
+
+    if (category === 'MOBO') {
+      if (selectedMOBO?.name === partName) {
+        setSelectedMOBO(null);
+      } else {
+        setSelectedMOBO(partObject);
+      }
+    }
+    if (category === 'GPU') {
+      if (selectedGPU?.name === partName) {
+        setSelectedGPU(null);
+      } else {
+        setSelectedGPU(partObject);
+      }
+    }
+    if (category === 'RAM') {
+      if (selectedRAM?.name === partName) {
+        setSelectedRAM(null);
+      } else {
+        setSelectedRAM(partObject);
+      }
+    }
+    if (category === 'CASE') {
+      if (selectedCASE?.name === partName) {
+        setSelectedCASE(null);
+      } else {
+        setSelectedCASE(partObject);
+      }
+    }
+    if (category === 'PSU') {
+      if (selectedPSU?.name === partName) {
+        setSelectedPSU(null);
+      } else {
+        setSelectedPSU(partObject);
+      }
+    }
   }
 
   //Logic to check compatibility 
@@ -49,6 +91,38 @@ function App() {
       
   })();
 
+  const isPartDisabled = (category, part) => {
+
+    // If no parts are selected, nothing is disabled
+    if (!selectedCPU && !selectedMOBO && !selectedRAM && !selectedGPU) {
+      return false;
+    }
+    
+    // Check compatibility based on category
+    if (category === 'CPU' && selectedMOBO) {
+      return part.socket !== selectedMOBO.socket;
+    }
+    if (category === 'MOBO') {
+      if (selectedCPU && part.socket !== selectedCPU.socket) return true;
+      if (selectedRAM && part.ramType !== selectedRAM.ramType) return true;
+    }
+    if (category === 'RAM' && selectedMOBO) {
+      return part.ramType !== selectedMOBO.ramType;
+    }
+    if (category === 'PSU') {
+      const cpuWatts = selectedCPU ? parseInt(selectedCPU.tdp) : 0;
+      const gpuWatts = selectedGPU ? parseInt(selectedGPU.tdp) : 0;
+
+      // 150 buffer to include fans and other components
+      const systemDemand = cpuWatts + gpuWatts + 150;
+
+      // if the PSU wattage is less than system demand, disable it
+      return part.wattage < systemDemand;
+    }
+
+    return false;
+  }
+
   // Helper variables for the UI
   const hasRequiredParts = selectedCPU && selectedMOBO;
   const isPerfectMatch = hasRequiredParts && compatibilityIssues.length === 0;
@@ -60,11 +134,28 @@ function App() {
         .toFixed(2);
 };
 
+  const resetBuild = () => {
+    setSelectedCPU(null);
+    setSelectedMOBO(null);
+    setSelectedRAM(null);
+    setSelectedGPU(null);
+    setSelectedCASE(null);
+    setSelectedPSU(null);
+  }
+
+
+   // Prevent needing to scroll back up on screen change
+   React.useEffect(() => {
+    window.scrollTo(0, 0);
+   }, [selectedScreen]);
+
   const selectedParts = {
     CPU: selectedCPU,
     MOBO: selectedMOBO,
     GPU: selectedGPU,
-    RAM: selectedRAM
+    RAM: selectedRAM,
+    CASE: selectedCASE,
+    PSU: selectedPSU
   }
 
   return (
@@ -75,9 +166,9 @@ function App() {
           PC BUILDERZ
         </h1>
         <div className="space-x-9 hidden md:flex font-mono text-sm tracking-wide cursor-pointer">
-          <a onClick={() => { setSelectedScreen('Home')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Home</a>
-          <a onClick={() => { setSelectedScreen('BuildScreen')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
-          <a onClick={() => { setSelectedScreen('Cart')}} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
+          <a onClick={() => { setSelectedScreen('Home'); resetBuild(); }} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Home</a>
+          <a onClick={() => { setSelectedScreen('BuildScreen'); resetBuild(); }} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Build Screen</a>
+          <a onClick={() => { setSelectedScreen('Cart'); resetBuild(); }} className="text-[#F8FAFC] hover:text-[#38BDF8] transition uppercase">Cart</a>
         </div>
         <button 
           onClick={() => setSelectedScreen('BuildScreen')}
@@ -144,8 +235,11 @@ function App() {
           selectedScreen={selectedScreen}
           setSelectedScreen={setSelectedScreen}
           partsData={partsData}
+          isPartDisabled={isPartDisabled}
           buildFilter={buildFilter}
           onPartSelect={handleSandboxPartSelection}
+          selectedStorage={selectedStorage}
+          setSelectedStorage={setSelectedStorage}
           selectedCPU={selectedCPU}
           setSelectedCPU={setSelectedCPU}
           selectedMOBO={selectedMOBO}
@@ -153,7 +247,11 @@ function App() {
           selectedRAM={selectedRAM}
           setSelectedRAM={setSelectedRAM}
           selectedGPU={selectedGPU}
-          setSelectedGPU={setSelectedGPU}
+          setSelected GPU={setSelectedGPU}
+          selectedCASE={selectedCASE}
+          setSelectedCASE={setSelectedCASE}
+          selectedPSU={selectedPSU}
+          setSelectedPSU={setSelectedPSU}
         />
      )}
 

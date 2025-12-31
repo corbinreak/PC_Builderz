@@ -1,7 +1,9 @@
 import React from 'react';
 
-const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, selectedMOBO, selectedRAM, selectedGPU, setSelectedScreen }) => {
-    // 1. Filtering Logic
+const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, selectedMOBO, selectedRAM, selectedGPU, selectedCASE, selectedPSU, selectedStorage, setSelectedScreen, isPartDisabled }) => {
+    
+  
+  // 1. Filtering Logic
     const getFilteredParts = (category) => {
     // 1. Get the raw list of parts for this category (CPU, MOBO, etc.)
     const parts = partsData?.[category] || [];
@@ -27,7 +29,7 @@ const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, select
 
     // 2. Total Calculation
     const calculateTotal = () => {
-      const parts = [selectedCPU, selectedMOBO, selectedRAM, selectedGPU];
+      const parts = [selectedCPU, selectedMOBO, selectedRAM, selectedGPU, selectedCASE, selectedPSU];
       return parts.reduce((sum, part) => sum + (part?.price || 0), 0).toFixed(2);
     };
   
@@ -49,7 +51,7 @@ const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, select
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Part Selection Area */}
         <div className="lg:col-span-2 space-y-12">
-          {['CPU', 'MOBO', 'RAM', 'GPU'].map((category) => {
+          {['CASE','CPU', 'MOBO', 'RAM', 'GPU', 'PSU'].map((category) => {
             const displayParts = getFilteredParts(category);
 
             return (
@@ -67,16 +69,21 @@ const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, select
                         selectedCPU?.name === part.name ||
                         selectedMOBO?.name === part.name ||
                         selectedRAM?.name === part.name ||
-                        selectedGPU?.name === part.name;
+                        selectedGPU?.name === part.name ||
+                        selectedCASE?.name === part.name ||
+                        selectedPSU?.name === part.name ||
+                        selectedStorage?.name === part.name;
                       
                       return (
                         <div 
                           key={part.id || part.name}
-                          onClick={() => onPartSelect(category, part.name)}
+                          onClick={() => !isPartDisabled(category,part) && onPartSelect(category, part.name)}
                           className={`group p-4 rounded-xl border-2 transition-all cursor-pointer flex justify-between items-center ${
-                            isSelected 
-                            ? "bg-[#1E293B] border-[#A855F7] ring-1 ring-[#A855F7]"
-                            : "bg-[#1E293B] border-slate-800 hover:border-slate-600" 
+                            isPartDisabled(category, part)
+                            ? "opacity-20 grayscale cursor-not-allowed border-transparent"
+                            : isSelected 
+                            ? "bg-[#1E293B] border-[#A855F7] ring-1 ring-[#A855F7] cursor-pointer"
+                            : "bg-[#1E293B] border-slate-800 hover:border-slate-600 cursor-pointer" 
                           }`} 
                         >
                           <div>
@@ -107,10 +114,13 @@ const BuildScreen = ({ partsData, buildFilter, onPartSelect, selectedCPU, select
 
               <div className="space-y-6 mb-10">
                 {[
+                  { label: 'Case', val: selectedCASE },
                   { label: 'Processor', val: selectedCPU },
                   { label: 'Motherboard', val: selectedMOBO },
                   { label: 'Memory', val: selectedRAM },
-                  { label: 'Graphics Card', val: selectedGPU }
+                  { label: 'Graphics Card', val: selectedGPU },
+                  { label: 'Power Supply', val: selectedPSU },
+                  { label: 'Storage', val: selectedStorage }
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col border-l border-slate-700 pl-4">
                     <span className="text-[10px] font-mono uppercase text-slate-500 tracking-widest">{item.label}</span>
